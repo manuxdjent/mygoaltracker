@@ -1,0 +1,62 @@
+<!--
+  Generated template for the LandingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-menu [content]="mycontent" id="main-menu">
+<ion-content>
+  <ion-list>
+    <ion-navbar hideBackButton>
+      <ion-title><ion-icon name="ionic"></ion-icon>MyGoalTracker</ion-title>
+      <ion-label>{{email}}</ion-label>
+    </ion-navbar>
+    <ion-item [navPush]="LandingPage"><ion-icon name="home"></ion-icon>Inicio</ion-item>
+    <ion-item [navPush]="DiarioPage"><ion-icon name="calendar"></ion-icon>Diario</ion-item>
+    <ion-item [navPush]="InformesPage"><ion-icon name="stats"></ion-icon>Informes</ion-item>
+    <ion-item [navPush]="PesoPage"><ion-icon name="disc"></ion-icon>Peso</ion-item>
+  </ion-list>
+</ion-content>
+</ion-menu> -->
+<!-- <ion-header>
+  <ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title>Inicio</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+     <ion-nav #mycontent [root]="LandingPage"></ion-nav> -->
+  <!-- <p>The home icon on the right is a small width sidemenu.</p>
+</ion-content> -->
+<ion-header>
+  <ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title><ion-icon name="ionic" ></ion-icon>MyGoalTracker</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-content class="card-background-page">
+    <ion-card>
+      <img src="assets/imgs/peso.jpg"/>
+      <div class="card-content">
+        <div class="card-title">Peso actual</div>
+        <div class="card-subtitle">{{ peso?.peso }} kg</div>
+      </div>
+    </ion-card>
+    <ion-card>
+      <img src="assets/imgs/calorias.jpg"/>
+      <div class="card-title">Calorias</div>
+      <div class="card-subtitle">1543 kcal</div>
+    </ion-card>
+  </ion-content>
+</ion-content>
