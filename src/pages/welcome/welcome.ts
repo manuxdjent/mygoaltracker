@@ -17,14 +17,15 @@ import { SignupPage } from '../signup/signup';
 })
 export class WelcomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public menu : MenuController) {
-    
+  constructor(public navCtrl: NavController, public navParams: NavParams, private menu : MenuController) {
+
   }
 
-  login(){this.navCtrl.push(LoginPage);}
-  signup(){this.navCtrl.push(SignupPage);}
+  login(){this.navCtrl.push(LoginPage); this.menu.swipeEnable(false);}
+  signup(){this.navCtrl.push(SignupPage); this.menu.swipeEnable(false);}
 
   ionViewDidLoad() {
+    this.menu.swipeEnable(false);
     console.log('ionViewDidLoad WelcomePage');
   }
 

@@ -25,14 +25,15 @@ export class SignupPage {
     public formBuilder : FormBuilder,
     private httpProvider : HttpProvider
   ) {
-    this.myForm = this.createMyForm(); 
+    this.myForm = this.createMyForm();
   }
 
   signup(){
-    this.httpProvider.signup({email: this.myForm.value["email"], pw: this.myForm.value["password"]}).subscribe((res: any) => {
+    this.httpProvider.signup({email: this.myForm.value["email"], pw: this.myForm.value["password"], meta: this.myForm.value["meta"]}).subscribe((res: any) => {
       console.log(res);
       this.httpProvider.login({email: this.myForm.value["email"], pw: this.myForm.value["password"]}).subscribe(()=>{
-        this.navCtrl.push(LandingPage);
+        //this.navCtrl.push(LandingPage);
+        this.navCtrl.setRoot('LandingPage');
       });
     }, (err) => {
       console.log(err);
@@ -42,7 +43,8 @@ export class SignupPage {
   private createMyForm(){
     return this.formBuilder.group({
       email: ['', [Validators.required,Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      meta: ['', Validators.required]
     })
   }
 

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, MenuController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpProvider } from '../../providers/http/http';
 import { LandingPage } from '../landing/landing';
@@ -23,7 +23,8 @@ export class LoginPage {
     public navParams: NavParams,
     public formBuilder : FormBuilder,
     private httpProvider : HttpProvider,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private menu: MenuController
   ) {
     this.myForm = this.createMyForm();
   }
@@ -43,7 +44,8 @@ export class LoginPage {
         this.LoginFailToast();
      } else {
          //this.navCtrl.push(TabsPage);
-         this.navCtrl.setRoot('MenusPage');
+         //this.navCtrl.setRoot('MenusPage');
+         this.navCtrl.setRoot('LandingPage');
      }
       // else
 
@@ -60,7 +62,11 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
+    this.menu.swipeEnable(false);
     console.log('ionViewDidLoad LoginPage');
   }
+  ionViewWillLeave() {
+    //this.menu.swipeEnable(true);
+   }
 
 }

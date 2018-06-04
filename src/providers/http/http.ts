@@ -15,6 +15,9 @@ import 'rxjs/add/operator/share';
 @Injectable()
 export class HttpProvider {
   public header: HttpHeaders;
+  private hash;
+  private pb;
+  private userID;
   constructor(
     private http: Http,
     private storage: Storage,
@@ -26,7 +29,6 @@ export class HttpProvider {
   }
 
   login(data){
-    //let nav = this.app.getActiveNav
     let seq = this.api.post('proyectoAPI/proyectoAPI/public/login',data).share();
     seq.subscribe((res: any) => {
       console.log(res.hash);
@@ -36,20 +38,6 @@ export class HttpProvider {
        this.storage.set('userID',res.userID);
     })
     return seq
-  // return new Promise((resolve, reject) => {
-  //   this.http.post('http://192.168.1.59/proyectoAPI/proyectoAPI/public/login',
-  //   // this.http.post('http://192.168.0.159/proyectoAPI/proyectoAPI/public/login',
-  //   data, {headers: { 'Content-Type': 'application/json' }})
-  //     .subscribe(res => {
-  //       //console.log(res);
-  //       this.storage.set('hash',res.json()['hash']);
-  //       this.storage.set('pb',res.json()['pb']);
-  //       this.storage.set('email',data['email']);
-  //       resolve(res);
-  //     }, (err) => {
-  //       reject(err);
-  //     });
-  // });
   }
   signup(data){
 
@@ -58,29 +46,51 @@ export class HttpProvider {
       this.login(data);
     })
     return seq
-  // return new Promise((resolve, reject) => {
-  //   this.http.post('http://192.168.1.59/proyectoAPI/proyectoAPI/public/signup',
-  //   // this.http.post('http://192.168.0.159/proyectoAPI/proyectoAPI/public/signup',
-  //   data, {headers: { 'Content-Type': 'application/json' }})
-  //     .subscribe(res => {
-  //       resolve(res);
-  //       //console.log("");
-  //
-  //     }, (err) => {
-  //       reject(err);
-  //     });
-  // });
-
   }
   peso(data){
-    //let nav = this.app.getActiveNav
-    //this.headers.append(data);
-    console.log(data);
-    let header = { headers: new HttpHeaders({'hash': data.hash, 'pb' : data.pb, 'userID' : data.userID })};    //this.header.set(data);
-    // this.header.append('pb', 'ole');
-    // this.header.append('userID', '19');
-    //let options = new RequestOptions({header: this.header});
+    let header = { headers: new HttpHeaders({'hash': data.hash, 'pb' : data.pb, 'userID' : data.userID })};
     let seq = this.api.get('proyectoAPI/proyectoAPI/public/peso', header).share();
+    seq.subscribe((res: any) => {
+    })
+    return seq
+  }
+  alimentos(data){
+    let header = { headers: new HttpHeaders({'hash': data.hash, 'pb' : data.pb, 'userID' : data.userID , 'input' : data.input})};
+    let seq = this.api.get('proyectoAPI/proyectoAPI/public/alimentos', header).share();
+    seq.subscribe((res: any) => {
+    })
+    return seq
+  }
+  registro(data){
+    console.log(data);
+    let header = { headers: new HttpHeaders({'hash': data.hash, 'pb' : data.pb, 'userID' : data.userID , 'fechaDispositivo' : data.fechaDispositivo, 'pag' : data.pag})};
+    let seq = this.api.get('proyectoAPI/proyectoAPI/public/registro', header).share();
+    seq.subscribe((res: any) => {
+    })
+    return seq
+  }
+
+  postRegistro(data,headersData){
+    console.log(headersData);
+    let header = { headers: new HttpHeaders(headersData)};
+    let seq = this.api.post('proyectoAPI/proyectoAPI/public/registro',data,header).share();
+    seq.subscribe((res: any) => {
+    })
+    return seq
+  }
+
+  postPeso(data,headersData){
+
+    let header = { headers: new HttpHeaders(headersData)};
+    let seq = this.api.post('proyectoAPI/proyectoAPI/public/peso',data,header).share();
+    seq.subscribe((res: any) => {
+
+    })
+    return seq
+  }
+  postPesoMeta(data,headersData){
+    let header = { headers: new HttpHeaders(headersData)};
+    let seq = this.api.post('proyectoAPI/proyectoAPI/public/pesoMeta',data,header).share();
     seq.subscribe((res: any) => {
     })
     return seq

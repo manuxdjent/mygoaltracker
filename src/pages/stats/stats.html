@@ -1,0 +1,45 @@
+<!--
+  Generated template for the StatsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+    <ion-title>Informes</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+      <ion-card-header>
+        Calorias semanales
+        <span>{{caloriasSemana}}</span>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  <ion-card>
+      <ion-card-header>
+        Calorias de hoy
+        <span>{{caloriasDiarias}}</span>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #pieCanvas *ngIf="caloriasDiarias != 0"></canvas>
+        <span class="sincalorias" *ngIf="caloriasDiarias == 0">Sin registro de calorias aún.</span>
+      </ion-card-content>
+      <div style="text-align:center; margin-bottom:10px" *ngIf="caloriasDiarias != 0">
+        <span style="color:#f4433685; float:none; margin-right:5px">Desayuno </span>
+        <span style="color:#00968885; float:none; margin-right:5px">Almuerzo </span>
+        <span style="color:#4caf5085; float:none; margin-right:5px">Cena </span>
+        <span style="color:#e91e63; float:none; margin-right:5px">Pasa Bocas</span>
+      </div>
+    </ion-card>
+</ion-content>

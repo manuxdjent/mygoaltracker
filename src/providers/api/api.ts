@@ -6,9 +6,10 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-    url: string = "http://192.168.1.57:80";
+    // url: string = "http://192.168.1.57:80";
+//  url: string = "http://172.30.250.3:80";
    //url: string = "http://localhost:80";
-  //url: string = "http://192.168.0.159:80";
+  url: string = "http://192.168.0.159:80";
 
   constructor(public http: HttpClient) {
   }
@@ -17,11 +18,8 @@ export class Api {
     if (!reqOpts) {
       reqOpts = {
         params: new HttpParams()
-      }; 
+      };
     }
-
-
-
     return this.http.get(this.url + '/' + endpoint, reqOpts);
   }
 

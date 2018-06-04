@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Buscar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar
+  placeholder="Búsqueda de alimentos"
+  [(ngModel)]="myInput"
+  (ionInput)="onInput($event)">
+</ion-searchbar>
+  <div *ngIf="alimentos != false">
+    <ion-item *ngFor="let item of alimentos" (click)="openAlimento(item)">
+      {{item.nombre}}
+    </ion-item>
+  </div>
+</ion-content>

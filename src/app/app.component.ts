@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { Platform, Nav, NavController } from 'ionic-angular';
+import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LandingPage } from '../pages/landing/landing';
 import { DiarioPage } from '../pages/diario/diario';
-import { InformesPage } from '../pages/informes/informes';
-import { PesoPage } from '../pages/peso/peso';
+import { StatsPage } from '../pages/stats/stats';
+import { PesoStatsPage } from '../pages/peso-stats/peso-stats';
 
 //import { TabsPage } from '../pages/tabs/tabs';
 
@@ -15,10 +15,13 @@ import { PesoPage } from '../pages/peso/peso';
   templateUrl: 'app.html'
 })
 export class MyApp {
+  @ViewChild(Nav) nav: Nav;
   //@ViewChild(Nav) nav: Nav;
   rootPage:any = WelcomePage;
-
-  //pages: Array<{title: string, component: any}>;
+  platform: Platform;
+  statusBar: StatusBar;
+  splashScreen: SplashScreen;
+  pages: Array<{title: string, component: any, icon: string}>;
 
 
   // constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
@@ -36,18 +39,23 @@ export class MyApp {
   //   });
   //
   // }
-  // openPage(page) {
-  //   console.log(page);
-  //   // Reset the content nav to have just this page
-  //   // we wouldn't want the back button to show in this scenario
-  //   this.nav.setRoot(page.component);
-  // }
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
-  platform.ready().then(() => {
-    // Okay, so the platform is ready and our plugins are available.
-    // Here you can do any higher level native things you might need.
-    statusBar.styleDefault();
-    splashScreen.hide();
+    this.pages = [
+      { title: 'Inicio', component: LandingPage , icon: "home"},
+      { title: 'Diario', component: DiarioPage , icon: "calendar"},
+      { title: 'Informes', component: StatsPage , icon: "stats"},
+      { title: 'Peso', component: PesoStatsPage , icon: "disc"},
+      { title: 'Salir', component: WelcomePage , icon: "contact"}
+    ];
+
+}
+initializeApp() {
+  this.platform.ready().then(() => {
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
   });
+}
+openPage(page) {
+  this.nav.setRoot(page.component);
 }
 }

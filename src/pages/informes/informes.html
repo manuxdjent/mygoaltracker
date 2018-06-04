@@ -1,29 +1,22 @@
-<ion-menu [content]="mycontent">
-<ion-content>
-  <ion-list>
-    <ion-navbar hideBackButton>
-      <ion-title><ion-icon name="ionic"></ion-icon>MyGoalTracker</ion-title>
-      <ion-label>{{email}}</ion-label>
-    </ion-navbar>
-    <ion-item [navPush]="LandingPage"><ion-icon name="home"></ion-icon>Inicio</ion-item>
-    <ion-item [navPush]="DiarioPage"><ion-icon name="calendar"></ion-icon>Diario</ion-item>
-    <ion-item [navPush]="InformesPage"><ion-icon name="stats"></ion-icon>Informes</ion-item>
-    <ion-item [navPush]="PesoPage"><ion-icon name="disc"></ion-icon>Peso</ion-item>
-  </ion-list>
-</ion-content>
-</ion-menu>
 <ion-header>
-  <ion-navbar hideBackButton>
-    <!-- <button menuToggle ion-button>
+  <ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button> -->
-    <ion-title><ion-icon (click)="toggleMenu()" name="menu"></ion-icon><ion-icon name="home"></ion-icon>Informes</ion-title>
-  </ion-navbar>
+    </button>
+  </ion-buttons>
+    <ion-title>Informes</ion-title>
+</ion-navbar>
 </ion-header>
+
+
 <ion-content>
-    <ion-nav #mycontent [root]="LandingPage"></ion-nav>
-  <p>The home icon on the right is a small width sidemenu.</p>
+  <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
-<ion-tabs position="bottom">
-  <ion-tab><ion-icon name="home"></ion-icon></ion-tab>
-</ion-tabs>

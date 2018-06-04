@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+  <ion-buttons left>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-buttons>
+    <ion-title>Peso</ion-title>
+</ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+      <ion-card-header>
+        Peso semanal
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  <ion-card>
+      <ion-card-header>
+        <span>Peso Actual</span>
+        <span style="float:right">Peso Meta</span>
+      </ion-card-header>
+      <ion-card-content>
+        <span *ngIf="pesoDiario == undefined">Sin registro de peso aún.</span>
+        <h1 style="float:left" *ngIf="pesoDiario != undefined">{{pesoDiario}} kg</h1>
+        <h1 style="float:right; margin-bottom:10px;" *ngIf="pesoDiario != undefined" (click)="presentIntroducirPesoMeta()">{{pesoMeta}} kg</h1>
+      </ion-card-content>
+    </ion-card>
+  <ion-card *ngIf="pesoDiario != undefined">
+      <ion-card-header *ngIf="pesoDiario - pesoMeta > 0">
+        <span>Aún para ir</span>
+      </ion-card-header>
+      <ion-card-header style="text-align:center" *ngIf="pesoDiario - pesoMeta < 0">
+        <span>¡Has conseguido tu objetivo!</span>
+      </ion-card-header>
+        <ion-card-content *ngIf="pesoDiario - pesoMeta > 0">
+          <h1>{{pesoDiario - pesoMeta}} kg</h1>
+       </ion-card-content>
+       <ion-card-content style="text-align:center" *ngIf="pesoDiario - pesoMeta < 0" (click)="presentIntroducirPesoMeta()">
+         <h1>Pulsa aquí para cambiar tu peso meta</h1>
+      </ion-card-content>
+ </ion-card>
+</ion-content>

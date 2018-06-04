@@ -23,10 +23,18 @@ ion-navbar ion-icon[name="menu"]{
   margin-bottom: 0.2em;
 }
 .card-background-page {
-
   ion-card {
     position: relative;
     text-align: center;
+  }
+  ion-spinner{
+    width: 60px;
+    height: 60px;
+    stroke: #444;
+    fill: #222;
+    position: absolute;
+    top: 32%;
+    left:40%;
   }
   ion-card img{
     -webkit-filter: blur(1.5px);

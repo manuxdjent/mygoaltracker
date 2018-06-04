@@ -16,3 +16,7 @@ ion-header {
 .list-md[inset] .item:last-child{
   border-bottom-width: 1px;
 }
+page-signup ion-img{
+  background: none;
+  filter: invert(10%);
+}

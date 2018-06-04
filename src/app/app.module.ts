@@ -7,14 +7,14 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage  } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 // import { LandingPage } from '../pages/landing/landing';
-// import { DiarioPage } from '../pages/diario/diario';
-// import { InformesPage } from '../pages/informes/informes';
-// import { PesoPage } from '../pages/peso/peso';
+import { DiarioPage } from '../pages/diario/diario';
+//import { InformesPage } from '../pages/informes/informes';
+import { StatsPage } from '../pages/stats/stats';
+import { PesoStatsPage } from '../pages/peso-stats/peso-stats';
 //
 // import { AboutPage } from '../pages/about/about';
 // import { ContactPage } from '../pages/contact/contact';
 // import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,14 +32,14 @@ import { Api } from '../providers/api/api';
     // AboutPage,
     // ContactPage,
     // HomePage,
-    TabsPage,
+    StatsPage,
     WelcomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
     // LandingPage,
-    // InformesPage,
-    // DiarioPage,
-    // PesoPage
+    //InformesPage,
+    DiarioPage,
+    PesoStatsPage
   ],
   imports: [
     BrowserModule,
@@ -54,14 +54,14 @@ import { Api } from '../providers/api/api';
     // AboutPage,
     // ContactPage,
     // HomePage,
-    TabsPage,
     WelcomePage,
     LoginPage,
-    SignupPage
+    SignupPage,
+    StatsPage,
     // LandingPage,
-    // InformesPage,
-    // DiarioPage,
-    // PesoPage
+    //InformesPage,
+    DiarioPage,
+    PesoStatsPage
   ],
   providers: [
     StatusBar,
