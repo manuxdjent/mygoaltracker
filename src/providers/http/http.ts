@@ -58,6 +58,7 @@ export class HttpProvider {
     let header = { headers: new HttpHeaders({'hash': data.hash, 'pb' : data.pb, 'userID' : data.userID , 'input' : data.input})};
     let seq = this.api.get('proyectoAPI/proyectoAPI/public/alimentos', header).share();
     seq.subscribe((res: any) => {
+      console.log(res);
     })
     return seq
   }

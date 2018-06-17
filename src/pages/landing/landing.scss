@@ -37,8 +37,8 @@ ion-navbar ion-icon[name="menu"]{
     left:40%;
   }
   ion-card img{
-    -webkit-filter: blur(1.5px);
-    filter: blur(1.5px);
+    // -webkit-filter: blur(1.5px);
+    // filter: blur(1.5px);
   }
 
   .card-title {
@@ -48,6 +48,7 @@ ion-navbar ion-icon[name="menu"]{
     width: 100%;
     font-weight: bold;
     color: #2a2c43;
+    text-shadow: 1px 1px lightgrey;
   }
 
   .card-subtitle {
@@ -55,7 +56,8 @@ ion-navbar ion-icon[name="menu"]{
     position: absolute;
     top: 52%;
     width: 100%;
-    color: #2a2c43;
+    color: #000000;
+    text-shadow: 1px 1px lightgrey;
   }
 
 }

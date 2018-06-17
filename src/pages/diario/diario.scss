@@ -48,3 +48,61 @@ page-diario ion-card-content{
 page-diario .card-header-md + .card-content-md, .card-md .item + .card-content-md{
     padding-top: 4%;
 }
+
+ion-card-content.contenido, ion-card-content div{
+    overflow:inherit;
+}
+span.nombre{
+    float:left;
+}
+span.cantidad{
+    float:right;
+    margin-bottom: 10px;
+}
+ion-icon.eliminar{
+  float: right;
+  margin-left: 12px;
+  margin-top: 3px;
+}
+div.contenido{
+
+  -webkit-animation-name: entrada;
+-webkit-animation-duration: 1000ms;
+-webkit-animation-timing-function: ease;
+-moz-animation-name: entrada;
+-moz-animation-duration: 1000ms;
+-moz-animation-timing-function: ease;
+-ms-animation-name: entrada;
+-ms-animation-duration: 1000ms;
+-ms-animation-timing-function: ease;
+
+animation-name: entrada;
+animation-duration: 1000ms;;
+animation-timing-function: ease;
+}
+
+ion-spinner{
+  left: 20%;
+  top: 40%;
+  width: 120px;
+  height: 120px;
+}
+
+@keyframes entrada {
+    from {
+        opacity: 0;
+    }
+    to {
+
+        opacity: 1;
+    }
+}
+
+.tostadaconmanteca{
+  .toast-wrapper{
+    border-radius: 20px;
+    width:90%;
+    background-color: rgba(51, 51, 51, 0.9);
+    margin-bottom: 1em;
+  }
+}

@@ -14,8 +14,9 @@
     <ion-title>Informes</ion-title>
 </ion-navbar>
 </ion-header>
-
-
+<!-- <ion-content *ngIf="loaded == false">
+<ion-spinner></ion-spinner>
+</ion-content> -->
 <ion-content>
   <ion-card>
       <ion-card-header>
@@ -35,11 +36,11 @@
         <canvas #pieCanvas *ngIf="caloriasDiarias != 0"></canvas>
         <span class="sincalorias" *ngIf="caloriasDiarias == 0">Sin registro de calorias aún.</span>
       </ion-card-content>
-      <div style="text-align:center; margin-bottom:10px" *ngIf="caloriasDiarias != 0">
-        <span style="color:#f4433685; float:none; margin-right:5px">Desayuno </span>
-        <span style="color:#00968885; float:none; margin-right:5px">Almuerzo </span>
-        <span style="color:#4caf5085; float:none; margin-right:5px">Cena </span>
-        <span style="color:#e91e63; float:none; margin-right:5px">Pasa Bocas</span>
+      <div class="divPie" *ngIf="caloriasDiarias != 0">
+        <span>Desayuno </span>
+        <span>Almuerzo </span>
+        <span>Cena </span>
+        <span>Pasa Bocas</span>
       </div>
     </ion-card>
 </ion-content>

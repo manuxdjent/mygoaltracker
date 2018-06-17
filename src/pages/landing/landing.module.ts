@@ -4,7 +4,7 @@ import { LandingPage } from './landing';
 
 @NgModule({
   declarations: [
-    LandingPage,
+    //LandingPage,
   ],
   imports: [
     IonicPageModule.forChild(LandingPage),

@@ -1,3 +1,13 @@
-page-peso-stats {
-
+page-peso-stats span.tituloMeta {
+  float: right;
+}
+h1.pesoDiario{
+  float:left;
+}
+h1.pesoMeta{
+  float: right;
+  padding-bottom: 10px;
+}
+ion-card-header.conseguido, ion-card-content.cambiarMeta{
+  text-align: center;
 }

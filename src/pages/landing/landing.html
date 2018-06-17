@@ -30,13 +30,13 @@
       <div *ngIf="peso == null || peso == undefined">
         <ion-spinner></ion-spinner>
       </div>
-      <div *ngIf="peso != null" class="card-content">
+      <div (click)="presentIntroducirPeso()" *ngIf="peso != null" class="card-content">
         <div *ngIf="peso != false">
           <div class="card-title">Peso actual</div>
           <div class="card-subtitle">{{ peso?.peso }} kg</div>
        </div>
        <div *ngIf="peso == false">
-         <div class="card-title" (click)="presentIntroducirPeso()">Introduce tu peso</div>
+         <div class="card-title">Introduce tu peso</div>
        </div>
       </div>
     </ion-card>

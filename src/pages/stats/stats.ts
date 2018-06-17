@@ -22,6 +22,7 @@ export class StatsPage {
   public hash: string;
   public pb: string;
   public userID: string;
+  public loaded = false;
   public dias = {
     lunes: 0,
     martes: 0,
@@ -51,7 +52,7 @@ export class StatsPage {
   }
 
   ionViewDidLoad() {
-
+      moment.locale('es');
         this.storage.get('email').then((val) => {
           this.email = val;
           this.storage.get('hash').then((val) => {
@@ -100,6 +101,7 @@ export class StatsPage {
                           }
                         }
                         if (moment(element.fecha).week() == moment().week()){
+                          console.log(moment(element.fecha).day());
                           caloriasSemana += parseInt(element.kc);
                           switch (moment(element.fecha).day()){
                             case 1:
@@ -120,7 +122,7 @@ export class StatsPage {
                             case 6:
                               dias['sabado'] += parseInt(element.kc);
                               break;
-                            case 7:
+                            case 0:
                               dias['domingo'] += parseInt(element.kc);
                               break;
                           }
@@ -179,28 +181,29 @@ export class StatsPage {
                                   label: 'Calorias',
                                   data: [this.tipo.desayuno, this.tipo.almuerzo, this.tipo.cena, this.tipo.pasabocas],
                                   backgroundColor: [
-                                      '#f4433685',
-                                      '#00968885',
-                                      '#4caf5085',
-                                      '#e91e6385'
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(200, 255, 112, 0.2)'
                                   ],
                                   borderColor: [
-                                    '#f4433685',
-                                    '#f4433685',
-                                    '#f4433685',
-                                    '#f44336'
+                                    'rgba(255,99,132,1)',
+                                    'rgba(54, 162, 235, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(200, 255, 112, 1)'
                                   ],
                                   borderWidth: 1
                               }]
                           },
                           options: {
                             tooltips: {
-                              enabled: false
+                              enabled: true
                             },
                               legend: { display: false }
                           }
                       });
                     }
+
                     else {
                       this.caloriasSemana = 0;
                       this.caloriasDiarias = 0;
@@ -267,16 +270,24 @@ export class StatsPage {
                               }]
                           },
                           options: {
+                            tooltips: {
+                              enabled: true
+                            },
                               legend: { display: false }
                           }
+
                       });
+
                     }
+
                     }, (err) => {
                       console.log(err);
                     });
+
                 });
             });
           });
+
         });
 
 

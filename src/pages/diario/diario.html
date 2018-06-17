@@ -22,16 +22,83 @@
     <ion-title>Diario</ion-title>
 </ion-navbar>
 </ion-header>
+<ion-content *ngIf="loaded == false">
+<ion-spinner></ion-spinner>
+</ion-content>
 <ion-content>
-    <div *ngIf="caloriasDiarias != false">
+  <div *ngIf="loaded == true">
+    <div class="contenido" *ngIf="caloriasDiarias != false">
       <ion-card class="tarjetas">
         <ion-card-header>
           <ion-icon name="add-circle" (click)="goBuscar('desayuno')"></ion-icon><span>Desayuno</span>
-          <span>{{ caloriasDesayuno }}</span>
+          <span>{{ caloriasDesayuno }} kcal</span>
         </ion-card-header>
-        <ion-card-content *ngIf="caloriasDesayuno > 0">
-          <span *ngFor="let alimento of alimentosDesayuno">{{ alimento.nombre }}</span>
+        <ion-card-content class="contenido" *ngIf="caloriasDesayuno > 0">
+          <div *ngFor="let alimento of alimentosDesayuno">
+            <span class="nombre" >{{ alimento.nombre }}</span>
+            <ion-icon (click)="eliminarAlimento(alimento.registroID, alimento.nombre)" class="eliminar" name="trash"></ion-icon>
+            <span class="cantidad">{{ alimento.cantidad }} {{ alimento.unidad }}</span>
+          </div>
         </ion-card-content>
+        <ion-card-content *ngIf="caloriasDesayuno == 0">
+          <span>Aún no se han añadido alimentos.</span>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="tarjetas">
+        <ion-card-header>
+          <ion-icon name="add-circle" (click)="goBuscar('almuerzo')"></ion-icon><span>Almuerzo</span>
+          <span>{{ caloriasAlmuerzo }} kcal</span>
+        </ion-card-header>
+        <ion-card-content class="contenido" *ngIf="caloriasAlmuerzo > 0">
+          <div  *ngFor="let alimento of alimentosAlmuerzo">
+            <span class="nombre" >{{ alimento.nombre }}</span>
+            <ion-icon (click)="eliminarAlimento(alimento.registroID, alimento.nombre)" class="eliminar" name="trash"></ion-icon>
+            <span class="cantidad">{{ alimento.cantidad }} {{ alimento.unidad }}</span>
+          </div>
+        </ion-card-content>
+        <ion-card-content *ngIf="caloriasAlmuerzo == 0">
+          <span>Aún no se han añadido alimentos.</span>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="tarjetas">
+        <ion-card-header>
+          <ion-icon name="add-circle" (click)="goBuscar('cena')"></ion-icon><span>Cena</span>
+          <span>{{ caloriasCena }} kcal</span>
+        </ion-card-header>
+        <ion-card-content class="contenido" *ngIf="caloriasCena > 0">
+          <div *ngFor="let alimento of alimentosCena">
+            <span class="nombre" >{{ alimento.nombre }}</span>
+            <ion-icon (click)="eliminarAlimento(alimento.registroID, alimento.nombre)" class="eliminar" name="trash"></ion-icon>
+            <span class="cantidad">{{ alimento.cantidad }} {{ alimento.unidad }}</span>
+          </div>
+        </ion-card-content>
+        <ion-card-content *ngIf="caloriasCena == 0">
+          <span>Aún no se han añadido alimentos.</span>
+        </ion-card-content>
+      </ion-card>
+      <ion-card class="tarjetas">
+        <ion-card-header>
+          <ion-icon name="add-circle" (click)="goBuscar('pasabocas')"></ion-icon><span>Pasa Bocas/Otros</span>
+          <span>{{ caloriasPasabocas }} kcal</span>
+        </ion-card-header>
+        <ion-card-content class="contenido" *ngIf="caloriasPasabocas > 0">
+          <div *ngFor="let alimento of alimentosPasabocas">
+            <span class="nombre" >{{ alimento.nombre }}</span>
+            <ion-icon (click)="eliminarAlimento(alimento.registroID, alimento.nombre)" class="eliminar" name="trash"></ion-icon>
+            <span class="cantidad">{{ alimento.cantidad }} {{ alimento.unidad }}</span>
+          </div>
+        </ion-card-content>
+        <ion-card-content *ngIf="caloriasPasabocas == 0">
+          <span>Aún no se han añadido alimentos.</span>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div class="contenido" *ngIf="caloriasDiarias == false">
+      <ion-card class="tarjetas">
+        <ion-card-header>
+          <ion-icon name="add-circle" (click)="goBuscar('desayuno')"></ion-icon><span>Desayuno</span>
+          <span>0</span>
+        </ion-card-header>
         <ion-card-content>
           <span>Aún no se han añadido alimentos.</span>
         </ion-card-content>
@@ -39,7 +106,7 @@
       <ion-card class="tarjetas">
         <ion-card-header>
           <ion-icon name="add-circle" (click)="goBuscar('almuerzo')"></ion-icon><span>Almuerzo</span>
-          <span>{{ caloriasAlmuerzo }}</span>
+          <span>0</span>
         </ion-card-header>
         <ion-card-content>
           <span>Aún no se han añadido alimentos.</span>
@@ -48,44 +115,6 @@
       <ion-card class="tarjetas">
         <ion-card-header>
           <ion-icon name="add-circle" (click)="goBuscar('cena')"></ion-icon><span>Cena</span>
-          <span>{{ caloriasCena }}</span>
-        </ion-card-header>
-        <ion-card-content>
-          <span>Aún no se han añadido alimentos.</span>
-        </ion-card-content>
-      </ion-card>
-      <ion-card class="tarjetas">
-        <ion-card-header>
-          <ion-icon name="add-circle" (click)="goBuscar('pasabocas')"></ion-icon><span>Pasa Bocas/Otros</span>
-          <span>{{ caloriasPasabocas }}</span>
-        </ion-card-header>
-        <ion-card-content>
-          <span>Aún no se han añadido alimentos.</span>
-        </ion-card-content>
-      </ion-card>
-    </div>
-    <div *ngIf="caloriasDiarias == false">
-      <ion-card class="tarjetas">
-        <ion-card-header>
-          <ion-icon name="add-circle" (click)="goBuscar('desayuno')"></ion-icon><span>Desayuno</span>
-          <span>0</span>
-        </ion-card-header>
-        <ion-card-content>
-          <span>Aún no se han añadido alimentos.</span>
-        </ion-card-content>
-      </ion-card>
-      <ion-card class="tarjetas">
-        <ion-card-header>
-          <ion-icon name="add-circle" (click)="goBuscar('almuerzo')"></ion-icon><span>Almuerzo</span>
-          <span>0</span>
-        </ion-card-header>
-        <ion-card-content>
-          <span>Aún no se han añadido alimentos.</span>
-        </ion-card-content>
-      </ion-card>
-      <ion-card class="tarjetas">
-        <ion-card-header>
-          <ion-icon name="add-circle" (click)="goBuscar('cena')"></ion-icon><span>Cena</span>
           <span>0</span>
         </ion-card-header>
         <ion-card-content>
@@ -102,4 +131,6 @@
         </ion-card-content>
       </ion-card>
     </div>
+  </div>
+
 </ion-content>

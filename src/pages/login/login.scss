@@ -22,3 +22,11 @@ page-login ion-img{
   background: none;
   filter: invert(10%);
 }
+.tostadaconmanteca{
+  .toast-wrapper{
+    border-radius: 20px;
+    width:90%;
+    background-color: rgba(51, 51, 51, 0.9);
+    margin-bottom: 1em;
+  }
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController, AlertController, ToastController } from 'ionic-angular';
 import { HttpProvider } from '../../providers/http/http';
 import { Storage } from '@ionic/storage';
 import * as moment from 'moment';
@@ -30,10 +30,20 @@ export class BuscarPage {
     private menu: MenuController,
     private alertCtrl: AlertController,
     private httpProvider : HttpProvider,
+    private toastCtrl: ToastController,
     public storage: Storage) {
     this.tipo = navParams.get('tipo');
     this.currentDate = moment().format("YYYY-MM-DD");
 
+  }
+  alimentoAddedToast(){
+    let toast = this.toastCtrl.create({
+      message: "Alimento añadido",
+      duration: 2000,
+      cssClass: "tostadaconmanteca",
+      position: 'bottom'
+    });
+    toast.present();
   }
   getAlimentos(data){
     return this.httpProvider.alimentos(data);
@@ -56,7 +66,7 @@ export class BuscarPage {
       inputs: [
         {
           name: 'cantidad',
-          placeholder: 'Cantidad en gramos...',
+          placeholder: 'Cantidad en '+alimento.unidad,
           type: 'number'
         }
       ],
@@ -71,9 +81,8 @@ export class BuscarPage {
         {
           text: 'Aceptar',
           handler: data => {
-            //console.log(this.tipo);
-            this.postRegistro(data,{hash: this.hash, pb: this.pb, userID: this.userID, fechaDispositivo: this.currentDate, tipo: this.tipo, caloriasAlimento: alimento.calorias}).subscribe((res: any) => {
-              
+            this.postRegistro(data,{hash: this.hash, pb: this.pb, userID: this.userID, fechaDispositivo: this.currentDate, tipo: this.tipo, caloriasAlimento: alimento.calorias, alimentoID: alimento.id}).subscribe((res: any) => {
+              this.alimentoAddedToast();
             }, (err) => {
               console.log(err);
             });
@@ -83,8 +92,10 @@ export class BuscarPage {
     });
     alert.present();
   }
+
   onInput(searchbar){
-    if (searchbar.srcElement.value != undefined){
+    var regExp = /[a-zA-Z ]*/;
+    if (searchbar.srcElement.value != undefined && regExp.test(searchbar.srcElement.value) == true){
       this.input = searchbar.srcElement.value;
       if (this.input.length != 0){
         this.storage.get('email').then((val) => {

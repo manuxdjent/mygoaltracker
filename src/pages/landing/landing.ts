@@ -7,7 +7,7 @@ import { HttpProvider } from '../../providers/http/http';
 import { DiarioPage } from '../diario/diario';
 import * as moment from 'moment';
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-landing',
   templateUrl: 'landing.html',
@@ -55,7 +55,7 @@ export class LandingPage {
   }
 presentIntroducirPeso() {
   let alert = this.alertCtrl.create({
-    title: 'Peso inicial',
+    title: 'Añadir peso',
     inputs: [
       {
         name: 'peso',

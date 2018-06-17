@@ -4,7 +4,7 @@ import { BuscarPage } from './buscar';
 
 @NgModule({
   declarations: [
-    BuscarPage,
+    //BuscarPage,
   ],
   imports: [
     IonicPageModule.forChild(BuscarPage),

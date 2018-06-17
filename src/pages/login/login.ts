@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams, ToastController, MenuController } 
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpProvider } from '../../providers/http/http';
 import { LandingPage } from '../landing/landing';
-// import { TabsPage } from '../tabs/tabs';
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -32,23 +25,18 @@ export class LoginPage {
     let toast = this.toastCtrl.create({
       message: "Email no registrado.",
       duration: 2000,
+      cssClass: "tostadaconmanteca",
       position: 'middle'
     });
     toast.present();
   }
   login(){
     this.httpProvider.login({email: this.myForm.value["email"], pw: this.myForm.value["password"]}).subscribe((res: any) => {
-      //console.log(res);
-      // var mensaje = JSON.parse(res['_body']);
        if  (res.error == 'LF'){
         this.LoginFailToast();
      } else {
-         //this.navCtrl.push(TabsPage);
-         //this.navCtrl.setRoot('MenusPage');
-         this.navCtrl.setRoot('LandingPage');
+         this.navCtrl.setRoot(LandingPage);
      }
-      // else
-
     }, (err) => {
       console.log(err);
     });

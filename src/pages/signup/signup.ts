@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { Nav,IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Nav,IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpProvider } from '../../providers/http/http';
 import { LandingPage } from '../landing/landing';
 import { LoginPage } from '../login/login';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -23,18 +16,31 @@ export class SignupPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder : FormBuilder,
-    private httpProvider : HttpProvider
+    private httpProvider : HttpProvider,
+    private toastCtrl : ToastController
   ) {
     this.myForm = this.createMyForm();
   }
 
+  SignupFailToast(){
+    let toast = this.toastCtrl.create({
+      message: "Email ya está siendo utilizado.",
+      duration: 2000,
+      cssClass: "tostadaconmanteca",
+      position: 'middle'
+    });
+    toast.present();
+  }
+
   signup(){
     this.httpProvider.signup({email: this.myForm.value["email"], pw: this.myForm.value["password"], meta: this.myForm.value["meta"]}).subscribe((res: any) => {
-      console.log(res);
-      this.httpProvider.login({email: this.myForm.value["email"], pw: this.myForm.value["password"]}).subscribe(()=>{
-        //this.navCtrl.push(LandingPage);
-        this.navCtrl.setRoot('LandingPage');
-      });
+      if (res.result == false) this.SignupFailToast();
+      else {
+        this.httpProvider.login({email: this.myForm.value["email"], pw: this.myForm.value["password"]}).subscribe(()=>{
+          //this.navCtrl.push(LandingPage);
+          this.navCtrl.setRoot(LandingPage);
+        });
+      }
     }, (err) => {
       console.log(err);
     });

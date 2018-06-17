@@ -147,7 +147,7 @@ export class PesoStatsPage {
                             case 6:
                               dias['sabado'] += parseInt(element.peso);
                               break;
-                            case 7:
+                            case 0:
                               dias['domingo'] += parseInt(element.peso);
                               break;
                           }

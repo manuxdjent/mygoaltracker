@@ -6,15 +6,12 @@ import { MyApp } from './app.component';
 import { WelcomePage } from '../pages/welcome/welcome';
 import { LoginPage  } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-// import { LandingPage } from '../pages/landing/landing';
+import { LandingPage } from '../pages/landing/landing';
 import { DiarioPage } from '../pages/diario/diario';
-//import { InformesPage } from '../pages/informes/informes';
 import { StatsPage } from '../pages/stats/stats';
 import { PesoStatsPage } from '../pages/peso-stats/peso-stats';
-//
-// import { AboutPage } from '../pages/about/about';
-// import { ContactPage } from '../pages/contact/contact';
-// import { HomePage } from '../pages/home/home';
+import { BuscarPage } from '../pages/buscar/buscar';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,7 +33,8 @@ import { Api } from '../providers/api/api';
     WelcomePage,
     LoginPage,
     SignupPage,
-    // LandingPage,
+    BuscarPage,
+    LandingPage,
     //InformesPage,
     DiarioPage,
     PesoStatsPage
@@ -57,8 +55,9 @@ import { Api } from '../providers/api/api';
     WelcomePage,
     LoginPage,
     SignupPage,
+    BuscarPage,
     StatsPage,
-    // LandingPage,
+    LandingPage,
     //InformesPage,
     DiarioPage,
     PesoStatsPage

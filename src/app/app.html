@@ -1,14 +1,15 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title><ion-icon name="ionic"></ion-icon>MyGoalTracker</ion-title>
+      <ion-title class="titleMenu"><ion-icon name="ionic"></ion-icon>MyGoalTracker</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
     <ion-list>
-      <ion-item menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon [name]="p.icon"></ion-icon>{{p.title}}</ion-item>
+      <ion-item class="menu" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon [name]="p.icon"></ion-icon>{{p.title}}
+      </ion-item>
     </ion-list>
   </ion-content>
 
