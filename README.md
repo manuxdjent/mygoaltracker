@@ -22,11 +22,11 @@ En el apartado ‘informes’ se visualiza mediante un diagrama de barras las ca
 
 ## Tecnologías usadas
 
-En cuanto a la arquitectura del proyecto se ha utilizado ‘Modelo-vista-controlador’ (MVC) ya que las tecnologías utilizadas manejan dicha arquitectura.
-Para el desarrollo del proyecto se han utilizado principalmente dos tecnologías, una para el cliente y otra para la API, en la parte del cliente IONIC v3.20.0  y para la API se ha optado por SLIM v3. Como gestor de bases de datos se ha utilizado MariaDB v10.1.28.
-IONIC utiliza como servidor web NodeJS v8.11.1 y Apache v2.4.
-El entorno de desarrollo utilizado para desarrollar tanto la API como la aplicación cliente ha sido Atom v1.27.2. Para la administración de la base de datos se ha utilizado phpMyAdmin v4.7.4.
-Para la representación de las estadísticas se ha utilizado ChartJS.
+<p>En cuanto a la arquitectura del proyecto se ha utilizado ‘Modelo-vista-controlador’ (MVC) ya que las tecnologías utilizadas manejan dicha arquitectura.</p><p>
+Para el desarrollo del proyecto se han utilizado principalmente dos tecnologías, una para el cliente y otra para la API, en la parte del cliente <b>IONIC v3.20.0</b>  y para la API se ha optado por <b>SLIM v3.</b> Como gestor de bases de datos se ha utilizado <b>MariaDB v10.1.28.</b>
+IONIC utiliza como servidor web <b>NodeJS v8.11.1</b> y <b>Apache v2.4.</b></p><p>
+El entorno de desarrollo utilizado para desarrollar tanto la <b>API REST</b> como la aplicación cliente ha sido Atom v1.27.2. Para la administración de la base de datos se ha utilizado phpMyAdmin v4.7.4.</p><p>
+Para la representación de las estadísticas se ha utilizado <b>ChartJS.</b></p>
 
 
 ## Meta
