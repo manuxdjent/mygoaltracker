@@ -1,8 +1,6 @@
+![](logo.png)
 # MyGoalTracker
 > Aplicación móvil para Android la cual permite monitorizar las calorías y el peso corporal con un seguimiento semanal y diario con el fin de alcanzar el peso deseado.
-
-
-![](logo.png)
 
 
 ## Diseño
@@ -15,11 +13,11 @@
 
 ## Planteamiento del problema
 
-El usuario, al registrarse en la aplicación, podrá introducir un peso meta inicial el cual se podrá modificar más adelante cuando vea oportuno.
-En cuanto se haya alcanzado el peso meta, el usuario será notificado y podrá introducir un nuevo peso meta. Se podrá visualizar, mediante un diagrama de barras, el peso semanal del usuario. También aparecerá el peso actual junto al peso meta establecido y los ‘kg’ que quedan para conseguir el objetivo.
-Se incluirá un apartado en el que se mostrará los alimentos consumidos en cada comida (desayuno,almuerzo,cena,pasabocas). También aparecerán las calorías totales consumidas en cada comida y la cantidad en gramos por cada alimento.
+<p>El usuario, al registrarse en la aplicación, podrá introducir un peso meta inicial el cual se podrá modificar más adelante cuando vea oportuno.</p><p>
+En cuanto se haya alcanzado el peso meta, el usuario será notificado y podrá introducir un nuevo peso meta. Se podrá visualizar, mediante un diagrama de barras, el peso semanal del usuario. También aparecerá el peso actual junto al peso meta establecido y los ‘kg’ que quedan para conseguir el objetivo.</p><p>
+Se incluirá un apartado en el que se mostrará los alimentos consumidos en cada comida (desayuno,almuerzo,cena,pasabocas). También aparecerán las calorías totales consumidas en cada comida y la cantidad en gramos por cada alimento.</p><p>
 Para buscar alimentos habrá un buscador el cual el usuario introducirá el alimento a buscar, una vez haya finalizado la búsqueda, aparecerán los resultados debajo del buscador en los cuales el usuario selecciona uno y le aparece una ventana en la cual aparece la información nutricional, una vez el usuario la visualice procederá a introducir la cantidad que haya consumido de tal alimento. 
-En el apartado ‘informes’ se visualiza mediante un diagrama de barras las calorías semanales por día, a continuación aparece un gráfico circular con las calorías diarias consumidas en cada comida.
+En el apartado ‘informes’ se visualiza mediante un diagrama de barras las calorías semanales por día, a continuación aparece un gráfico circular con las calorías diarias consumidas en cada comida.</p>
 
 
 ## Tecnologías usadas
