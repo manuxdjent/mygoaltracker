@@ -23,11 +23,7 @@ export class HttpProvider {
     private storage: Storage,
     private api: Api,
     private app: App
-  ){
-    console.log('Hello HttpProvider Provider');
-
-  }
-
+  )
   login(data){
     let seq = this.api.post('proyectoAPI/proyectoAPI/public/login',data).share();
     seq.subscribe((res: any) => {
