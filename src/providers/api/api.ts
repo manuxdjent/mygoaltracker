@@ -1,16 +1,10 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-/**
- * Api is a generic REST Api handler. Set your API url first.
- */
 @Injectable()
 export class Api {
-    // url: string = "http://192.168.1.57:80";
- //url: string = "http://172.30.250.3:80";
-   url: string = "http://172.30.250.54:80";
-  //url: string = "http://192.168.137.1:80";
-
+   url: string = "*";
+  
   constructor(public http: HttpClient) {
   }
 
@@ -24,7 +18,6 @@ export class Api {
   }
 
   post(endpoint: string, body: any, reqOpts?: any) {
-    //  console.log("cabecera", reqOpts)
     return this.http.post(this.url + '/' + endpoint, body, reqOpts);
   }
 
