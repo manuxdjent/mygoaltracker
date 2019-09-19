@@ -33,15 +33,6 @@ export class LandingPage {
       this.currentDate = moment().format("YYYY-MM-DD");
   }
 
-  // getFecha(){
-  //   var dateObj = new Date();
-  //   var year = dateObj.getFullYear().toString();
-  //   if (dateObj.getMonth() + 1 < 10) var month = dateObj.getMonth() + 1;
-  //   else var month = dateObj.getMonth() + 1;
-  //   var date = dateObj.getDate().toString();
-  //   this.currentDate = year + '-' + month.toString() + '-' + date;
-  // }
-
   abrirPagina(){this.navCtrl.setRoot(DiarioPage);}
   getPeso(data){
     return this.httpProvider.peso(data);
@@ -117,8 +108,7 @@ ngOnInit() {
         }).then(() => {
             this.getPeso({hash: this.hash, pb: this.pb, userID: this.userID}).subscribe((res: any) => {
             if  (res.result != false) {
-              this.peso = res[0]; // Se obtiene el útlimo peso.
-              //console.log(this.peso);
+              this.peso = res[0];
             }
             else this.peso = res.result;
             }, (err) => {
