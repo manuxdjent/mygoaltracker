@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, AlertController, MenuController  } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { HttpProvider } from '../../providers/http/http';
-//import { MenusPage } from '../menus/menus';
 
 import { DiarioPage } from '../diario/diario';
 import * as moment from 'moment';
